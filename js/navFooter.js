@@ -2,7 +2,6 @@ fetch("navbar.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("navbar").innerHTML = data;
-
     // run AFTER navbar is inserted
     setActiveLink();
   });
@@ -17,6 +16,9 @@ function setActiveLink() {
   document.querySelectorAll('.nav-link').forEach(link => {
     if (link.getAttribute("href") === currentPage) {
       link.classList.add("active");
+    }
+    if (currentPage === "OMNORA/") {
+      document.querySelector('.homeNavlink').classList.add("active");
     }
   });
 }
