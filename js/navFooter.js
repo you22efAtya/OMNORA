@@ -12,6 +12,8 @@ fetch("footer.html")
 
 function setActiveLink() {
   const currentPage = window.location.pathname.split("/").pop();
+  console.log(currentPage);
+  
 
   document.querySelectorAll('.nav-link').forEach(link => {
     if (link.getAttribute("href") === currentPage) {
