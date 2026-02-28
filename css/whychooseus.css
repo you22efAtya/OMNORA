@@ -1,0 +1,95 @@
+.why-choose-us {
+  background: white;
+  padding: 85px 0 !important;
+}
+/* Global Section Styles */
+.section-title {
+  color: #002d5b;
+  font-weight: 700;
+  font-size: 2.5rem;
+  opacity: 0;
+}
+.section-title.animate {
+  animation: fadeUp 1s ease-in-out 0s 1 normal forwards;
+}
+
+.section-subtitle {
+  letter-spacing: 2px;
+  color: #6c757d;
+  font-size: 0.9rem;
+  opacity: 0;
+}
+.section-subtitle.animate {
+  animation: fadeUp 1s ease-in-out 0.2s 1 normal forwards;
+}
+
+/* Why Choose Us Styles */
+.feature-icon {
+  font-size: 2.5rem;
+  color: #002d5b;
+  margin-bottom: 20px;
+}
+
+.feature-item h5 {
+  font-weight: 700;
+  color: #002d5b;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.feature-item p {
+  color: #555;
+  font-size: 0.95rem;
+  padding: 0 10px;
+}
+
+/* Numbers Section Styles */
+.stat-card {
+  background: #ffffff;
+  border-radius: 30px; /* High radius for the "pill" card look */
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.stat-number {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #12192c;
+  margin-bottom: 10px;
+}
+
+.stat-text {
+  font-size: 1.1rem;
+  color: #2d3748;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.feature-item {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.item-wrapper
+{
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+.item-wrapper:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.feature-item.animate {
+  animation: fadeUp 1s ease-in-out 0.4s 1 normal forwards ;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

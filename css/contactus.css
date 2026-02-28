@@ -1,0 +1,80 @@
+/* Reset Body - Crucial to fix the footer positioning */
+body {
+    display: block !important; 
+    background-color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Full width section background */
+.contact-section {
+    width: 100%;
+    background-color: #ffffff; /* Or keep white to match your image background */
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+/* The Card styling from your image */
+.contact-card {
+    background-color: #f3f5f7; /* The soft gray in your image */
+    padding: 80px 60px;
+    border-radius: 40px;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
+    animation: fadeInUp 1s ease forwards;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.text-navy {
+    color: #1a2b4b;
+}
+
+/* Custom Input Styling to match the design */
+.custom-input {
+    border: none !important;
+    border-radius: 15px !important;
+    padding: 18px 25px !important;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.custom-input:focus {
+    box-shadow: 0 0 0 3px rgba(26, 43, 75, 0.1) !important;
+}
+
+/* Custom Button */
+.btn-navy {
+    background-color: #1a2b4b;
+    color: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-navy:hover {
+    background-color: #121e35;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+    
+    .contact-section {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,87 @@
+/* Section Styling */
+.partners-section {
+  /* This creates a 70% opaque blue overlay on top of your image */
+  background: linear-gradient(
+      rgba(0, 45, 91, 0.7), 
+      rgba(0, 45, 91, 0.7)
+    ), 
+    url('../assets/parters.png'); /* Replace with your background image path */
+  
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  overflow: hidden;
+  color: white; /* Ensures your "Our Partners" text stays visible */
+}
+.section-title-white {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* The Marquee Container */
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100px; /* Adjust based on max logo height */
+  overflow: hidden;
+  /* Optional: Adds a subtle fade effect on the edges so logos don't just disappear */
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    rgb(0, 0, 0) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* The Track that moves */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  white-space: nowrap;
+  animation: scroll-infinite 40s linear infinite;
+}
+
+/* Optional: Pause on hover */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Individual Logo Items */
+.partner-logo {
+  flex-shrink: 0; /* Ensures logos don't squish */
+  width: 200px; /* Average width allocated for each logo slot */
+  padding: 0 30px; /* Gap between logos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-logo img {
+  max-width: 100%;
+  max-height: 80px; /* Ensure consistent height */
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.8; /* Slight transparency for a premium look */
+  transition: opacity 0.3s ease;
+}
+
+.partner-logo img:hover {
+  opacity: 1;
+}
+
+/* The Keyframe Animation */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move left by 50% of the track width (because we doubled the content) */
+    transform: translateX(-86%);
+  }
+}

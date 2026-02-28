@@ -1,0 +1,41 @@
+.stats-section {
+    background-color: #f1f3f5; /* Light gray background */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.section-title-numbers {
+    color: #002D5B;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 50px 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    color: #002D5B !important;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.stat-text {
+    color: #2d3748;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    max-width: 80%;
+    margin: 0 auto;
+}

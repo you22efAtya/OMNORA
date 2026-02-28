@@ -1,0 +1,96 @@
+:root {
+    --footer-bg: #002d5b; /* The dark navy background */
+    --text-gray: #9ba4b4; /* Muted text color */
+    --heading-white: #ffffff;
+}
+
+.custom-footer {
+    background-color: var(--footer-bg);
+    color: var(--text-gray);
+    padding: 80px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-logo-text {
+    color: var(--heading-white);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.footer-tagline {
+    line-height: 1.6;
+    max-width: 280px;
+    font-size: 0.95rem;
+}
+
+.footer-heading {
+    color: var(--heading-white);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--heading-white);
+}
+
+/* Social Icons Styling */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #6c7e9b; /* Muted blue-grey circle */
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+    color: white;
+}
+
+.contact-info p {
+    margin-bottom: 12px;
+}
+
+.contact-info
+{
+    position: relative; right: 70px;
+}
+@media all and (max-width: 992px)
+{
+    .contact-info
+    {
+        position: relative; right: 0px;
+    }
+}
+@media all and (min-width: 992px) and (max-width: 1200px  )
+{
+    .contact-info
+    {
+        position: relative; right: 0px;
+    }
+}
