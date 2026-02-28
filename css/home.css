@@ -383,6 +383,22 @@ header .d-flex {
       gap: 3rem !important;
       margin-top: 30px !important;
     }
+    .btn-omnora-primary 
+    {
+      font-size: 15px !important;
+    }
+    .btn-omnora-outline 
+    {
+      font-size: 15px !important;
+    }
+    .text-uppercase
+    {
+        font-size: 13px !important;
+    }
+    header .lead 
+    {
+        font-size: 19px !important;
+    }
     
 }
 /* (min-width: 576px) and (max-width: 768px ) */
