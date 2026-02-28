@@ -329,10 +329,59 @@ header .d-flex {
     {
       font-size: 30px;
       opacity: 0;
+      text-align: center;
     }
     .parAboutUs
     {
       text-align: center;
+    }
+     .aboutUsTitle
+    {
+      font-size: 40px;
+      text-align: center;
+    }
+    .aboutUsTitle2
+    {
+      text-align: center;
+    }
+    .AboutUsSub
+    {
+      text-align: center;
+      margin: auto;
+    }
+    .RoundedAboutUs
+    {
+      font-size: 14.5px !important;
+      justify-content: center;
+    }
+    .RoundedAboutUsCol
+    {
+      position: relative;
+      top:20px;
+    }
+
+    .RoundedAboutUsCol .rounded-circle
+    {
+      width: 13px !important;
+      height: 8px !important;
+    }
+    .secondColAboutUs
+    {
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      flex-direction: column;
+      
+    }
+    .parentColAboutUsSecondCol
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      margin: auto;
+      gap: 3rem !important;
+      margin-top: 30px !important;
     }
     
 }
@@ -594,5 +643,8 @@ header .d-flex {
 
 /* Extra large devices (large desktops, less than 1400px) */
 @media all and (min-width: 1200px) and (max-width: 1398px  ){
-
+  .secAboutus
+  {
+    font-size: 50px;
+  }
 }
