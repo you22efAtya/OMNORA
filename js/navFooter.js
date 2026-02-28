@@ -17,7 +17,7 @@ function setActiveLink() {
     if (link.getAttribute("href") === currentPage) {
       link.classList.add("active");
     }
-    if (currentPage === "OMNORA/") {
+    if (currentPage === "") {
       document.querySelector('.homeNavlink').classList.add("active");
     }
   });
