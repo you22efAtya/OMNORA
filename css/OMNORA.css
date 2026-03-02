@@ -631,37 +631,6 @@ nav {
   transform: translateY(-2px);
 }
 
-/* ─── FOOTER ─── */
-footer {
-  border-top: 1px solid var(--line);
-  padding: 36px 56px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
-}
-.footer-logo {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 6px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-.footer-copy {
-  font-size: 11px;
-  font-weight: 300;
-  color: rgba(15,32,68,0.22);
-  letter-spacing: 1px;
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-   All changes are additive — no base styles
-   are overridden except layout/spacing.
-═══════════════════════════════════════════ */
-
-/* ── Tablet: 768px – 1024px ── */
 @media (max-width: 1024px) {
   nav { padding: 20px 32px; }
 
@@ -690,7 +659,6 @@ footer {
   .combined { padding: 100px 48px; }
   .pillars { max-width: 100%; }
 
-  footer { padding: 32px 40px; }
 }
 
 /* ── Mobile: max 767px ── */
@@ -810,13 +778,7 @@ footer {
     text-align: center;
   }
 
-  /* FOOTER */
-  footer {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    padding: 28px 24px;
-  }
+
 }
 
 /* ── Small mobile: max 400px ── */
