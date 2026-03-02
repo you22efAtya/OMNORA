@@ -1,0 +1,85 @@
+
+#testimonials {
+    background-color: #f1f4f9; /* Light blue-grey background to separate from services */
+    padding: 100px 0;
+}
+
+/* The individual feedback card */
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    margin: 10px;
+    height: 100%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Large decorative quote mark */
+.quote-mark {
+    font-size: 3rem;
+    line-height: 0;
+    display: block;
+    color: #dee2e6;
+    margin-bottom: 15px;
+    font-family: serif;
+}
+
+/* User Avatar (Circle with Initials) */
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    background: #1d2d50; /* Deep navy to match OMNORA branding */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0; /* Prevents circle from squishing */
+}
+
+/* Star Ratings */
+.star-rating {
+    color: #ffc107; /* Gold */
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.star-rating i {
+    margin-right: 2px;
+}
+
+/* Carousel Control Buttons (The arrows) */
+.control-btn {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ced4da;
+    border-radius: 50%;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+.control-btn:hover {
+    background: #1d2d50;
+    color: #ffffff;
+    border-color: #1d2d50;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-card {
+        padding: 30px 20px;
+    }
+}

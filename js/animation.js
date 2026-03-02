@@ -87,7 +87,7 @@ if(AboutUs1)
     observer3.observe(parAboutUs);
     iconsec.forEach(icon => observer3.observe(icon));
 }
-else if(whyTitle)
+else if(whySubtitle)
 {
     observer4.observe(whyTitle);
     observer4.observe(whySubtitle);
