@@ -62,7 +62,7 @@
   max-width: 100%;
   max-height: 80px; /* Ensure consistent height */
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: grayscale(100%); /* Optional: Makes logos grayscale for a more uniform look */
   opacity: 0.8; /* Slight transparency for a premium look */
   transition: opacity 0.3s ease;
 }

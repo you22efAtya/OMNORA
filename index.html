@@ -18,7 +18,24 @@
     <link rel="stylesheet" href="css/numbers.css">
     <link rel="stylesheet" href="css/whychooseus.css">
 </head>
+<style>
+/* Container styling to help with alignment */
+.section-title-numbers {
+    display: flex;
+    align-items: center; /* Vertically centers logo and text */
+    justify-content: center; /* Horizontally centers the whole block */
+    flex-wrap: wrap; /* Allows text to wrap below logo on very small screens */
+    gap: 10px; /* Modern spacing between logo and text */
+}
 
+.responsive-logo {
+    /* KEY RESPONSIVE RULES */
+    width: auto;       /* Can scale up to 100% of its parent container... */
+    height: 0.85em;      /* Maintains the correct aspect ratio when resizing */
+    /* Optional: display block helps with alignment in some older layouts */
+    display: block; 
+}
+</style>
 <body>
 
     <div id="navbar"></div>
@@ -255,8 +272,11 @@
         </section>
         <section class="stats-section py-5">
             <div class="container">
-                <h2 class="text-center section-title-numbers mb-5"><span>OMN<span
-                            class="text-omnora-grey">ORA</span></span> in Numbers</h2>
+                <!-- <span>OMN<span class="text-omnora-grey">ORA</span></span> -->
+<h2 class="text-center section-title-numbers mb-5">
+  <img src="assets/LogoBold.png" class="responsive-logo me-2 mt-2" alt="OMNORA Logo">
+  <span>in Numbers</span>
+</h2>
 
                 <div class="row g-4">
                     <div class="col-md-6">

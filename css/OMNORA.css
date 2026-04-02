@@ -635,6 +635,7 @@ nav {
   nav { padding: 20px 32px; }
 
   .hero { padding: 120px 32px 80px; }
+  
 
   .letters-container { margin-bottom: 60px; }
   .letter-block { padding: 22px 22px 18px; }
@@ -679,7 +680,7 @@ nav {
   .eyebrow::before, .eyebrow::after { display: none; }
 
   .hero-question {
-    font-size: clamp(38px, 11vw, 60px);
+    font-size: 45px;
     letter-spacing: -0.5px;
     margin-bottom: 14px;
   }
@@ -782,9 +783,24 @@ nav {
 }
 
 /* ── Small mobile: max 400px ── */
-@media (max-width: 400px) {
+@media (max-width: 450px) {
+  .hero-question {
+    font-size: 65px ;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
   .letters-container { max-width: 100%; }
   .letter-block { padding: 12px 6px 10px; }
   .letter-char { font-size: 32px; }
-  .hero-question { font-size: clamp(32px, 12vw, 48px); }
+}
+
+@media (min-width: 450px) and (max-width: 767px) {
+  .hero-question {
+    font-size: 65px ;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
+  .letters-container { max-width: 100%; }
+  .letter-block { padding: 12px 6px 10px; }
+  .letter-char { font-size: 32px; }
 }

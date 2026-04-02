@@ -13,11 +13,21 @@
     height: 100%;
     border: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
+.testimonial-card .d-flex 
+{
+    position: absolute;
+    
+    top: 190px;
+}
+
+
+
 .testimonial-card:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    
 }
 
 /* Large decorative quote mark */
@@ -42,6 +52,39 @@
     justify-content: center;
     font-weight: 700;
     flex-shrink: 0; /* Prevents circle from squishing */
+}
+
+.avatar-circle {
+    width: 60px;           /* Must match height for a perfect circle */
+    height: 60px;
+    background: #1d2d50;
+    color: #ffffff;
+    border-radius: 50%;    /* Makes the container a circle */
+    overflow: hidden;      /* Clips the image to the circle */
+    display: flex;         /* Centers the image if it's smaller */
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0; /* Prevents circle from squishing */
+}
+
+.avatar-circle img {
+    width: 100%;           /* Ensures the image fills the width */
+    height: 100%;          /* Ensures the image fills the height */
+    object-fit: cover;     /* IMPORTANT: Prevents stretching/distortion */
+}
+
+.testimonial-card .d-flex 
+{
+    position: absolute;
+
+    top: 190px;
+}
+.testimonial-card .d-flex 
+{
+    position: absolute;
+
+    top: 190px;
 }
 
 /* Star Ratings */

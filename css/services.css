@@ -172,6 +172,11 @@
     }
 }
 
+.testimonial-card
+{
+    height: 300px !important;
+}
+
 @media (max-width: 768px) {
     #svc-namespace .services-grid {
         grid-template-columns: 1fr;
