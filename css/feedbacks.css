@@ -23,7 +23,10 @@
     top: 190px;
 }
 
-
+.testimonial-card
+{
+    height: 300px !important;
+}
 
 .testimonial-card:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -74,18 +77,12 @@
     object-fit: cover;     /* IMPORTANT: Prevents stretching/distortion */
 }
 
-.testimonial-card .d-flex 
+/* .testimonial-card .d-flex 
 {
     position: absolute;
 
     top: 190px;
-}
-.testimonial-card .d-flex 
-{
-    position: absolute;
-
-    top: 190px;
-}
+} */
 
 /* Star Ratings */
 .star-rating {
@@ -124,5 +121,17 @@
 @media (max-width: 768px) {
     .testimonial-card {
         padding: 30px 20px;
+    }
+}
+
+@media (max-width: 906px) {
+    .testimonial-card .d-flex 
+    {
+        position: relative;
+        top: 0;
+    }
+    .testimonial-card
+    {
+        height: auto !important;
     }
 }
