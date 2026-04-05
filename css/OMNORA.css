@@ -776,7 +776,7 @@ nav {
   }
   .connection
   {
-    bottom: 205px;
+    bottom: 190px;
     font-size: 14px;
     width: 450px !important;
   }
@@ -901,7 +901,7 @@ nav {
 {
   .connection
   {
-    bottom: 175px;
+    bottom: 155px;
     width: 400px !important;
 
   }
@@ -911,7 +911,7 @@ nav {
 {
   .connection
   {
-    bottom: 155px !important;
+    bottom: 140px !important;
     width: 300px !important;
 
   }
@@ -922,7 +922,7 @@ nav {
 
   .connection
   {
-    bottom: 155px !important;
+    bottom: 140px !important;
     width: 300px !important;
 
   }
@@ -956,7 +956,7 @@ nav {
 {
   .connection
   {
-    bottom: 125px !important;
+    bottom: 110px !important;
     width: 250px !important;
 
   }
