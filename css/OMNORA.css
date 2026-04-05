@@ -22,6 +22,53 @@ body {
   overflow-x: hidden;
 }
 
+/* Base State (Hidden) */
+.connection {
+  /* Positioning & Layout */
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px); /* Centers and sets up "fade up" */
+  width: 90%;
+  max-width: 500px;
+  padding: 1.5rem 2rem;
+  
+  /* Modern Aesthetic: Glassmorphism */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  font-size: 1.1rem;
+  line-height: 1.5;
+      color: rgba(15, 32, 68, 0.6);
+  text-align: center;
+
+  /* State Handling */
+  opacity: 0;
+  visibility: hidden;
+  transition: 
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.6s;
+}
+
+/* Active State (Visible) */
+.connection.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.connection p {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
 /* ─── SCROLL REVEAL BASE ─── */
 .reveal {
   opacity: 0;
@@ -275,7 +322,7 @@ nav {
   transform: scaleX(0);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.letter-block:hover::after { transform: scaleX(1); }
+/* 
 
 .letter-block:hover {
   transform: translateY(-10px);
@@ -285,21 +332,55 @@ nav {
 }
 
 .letter-block:hover .letter-char {
-  -webkit-text-fill-color: transparent;
-  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  /* -webkit-text-fill-color: transparent; */
+  /* background: linear-gradient(135deg, var(--blue), var(--blue-light)); */
+  /* -webkit-background-clip: text;
+  background-clip: text;
+} */
+/*   */
+
+/* .letter-block:hover .letter-meaning {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 40px;
+} */
+/* .letter-block:hover .letter-dot {
+  background: var(--blue);
+  transform: scale(1.6);
+  box-shadow: 0 0 8px rgba(0,102,204,0.4);
+} */
+/* .letter-block:hover::after { transform: scaleX(1); } */
+
+
+
+/*click*/
+
+.letter-block.click {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 50px rgba(15,32,68,0.1);
+  z-index: 2;
+  background: #fafbff;
+}
+
+.letter-block.click::after { transform: scaleX(1); }
+
+.letter-block.click .letter-char {
+  /* -webkit-text-fill-color: transparent; */
+  /* background: linear-gradient(135deg, var(--blue), var(--blue-light)); */
   -webkit-background-clip: text;
   background-clip: text;
 }
-.letter-block:hover .letter-meaning {
+.letter-block.click .letter-meaning {
   opacity: 1;
   transform: translateY(0);
   max-height: 40px;
 }
-.letter-block:hover .letter-dot {
+.letter-block.click .letter-dot {
   background: var(--blue);
   transform: scale(1.6);
   box-shadow: 0 0 8px rgba(0,102,204,0.4);
 }
+
 
 .letter-char {
 
@@ -631,14 +712,27 @@ nav {
   transform: translateY(-2px);
 }
 
+@media (max-width: 1087px) {
+  .letter-meaning.image
+  {
+    position: relative;
+    bottom: 6px !important;
+  }
+}
+
 @media (max-width: 1024px) {
   nav { padding: 20px 32px; }
 
   .hero { padding: 120px 32px 80px; }
   
+  .connection
+  {
+    bottom: 80px;
+    width: 450px !important;
+  }
 
-  .letters-container { margin-bottom: 60px; }
-  .letter-block { padding: 22px 22px 18px; }
+  /* .letters-container { margin-bottom: 60px; } */
+  /* .letter-block { padding: 22px 22px 18px; } */
 
   .split { grid-template-columns: 1fr; min-height: auto; }
   .split-panel {
@@ -665,6 +759,27 @@ nav {
 /* ── Mobile: max 767px ── */
 @media (max-width: 767px) {
 
+  .letter-meaning.image
+  {
+    position: relative;
+    bottom: 3px !important;
+  }
+  .box2 .letter-char
+  {
+    position: relative;
+    bottom: 5px !important;
+  }
+  .box2 .letter-dot
+  {
+    position: relative;
+    bottom: 5px !important;
+  }
+  .connection
+  {
+    bottom: 140px;
+    font-size: 14px;
+    width: 450px !important;
+  }
   /* NAV */
   nav { padding: 18px 24px; }
   .nav-links { display: none; }
@@ -687,38 +802,38 @@ nav {
   .hero-sub { font-size: 13px; margin-bottom: 40px; }
 
   /* LETTERS — 3×2 grid on mobile */
-  .letters-container {
+  /* .letters-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-radius: 4px;
     margin-bottom: 48px;
     width: 100%;
     max-width: 340px;
-  }
-  .letter-block {
+  } */
+  /* .letter-block {
     padding: 16px 10px 12px;
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-  }
+  } */
   /* remove bottom border from last row */
-  .letter-block:nth-child(4),
+  /* .letter-block:nth-child(4),
   .letter-block:nth-child(5),
-  .letter-block:nth-child(6) { border-bottom: none; }
+  .letter-block:nth-child(6) { border-bottom: none; } */
   /* remove right border from every 3rd */
-  .letter-block:nth-child(3),
-  .letter-block:nth-child(6) { border-right: none; }
+  /* .letter-block:nth-child(3),
+  .letter-block:nth-child(6) { border-right: none; } */
 
   .letter-char { font-size: clamp(36px, 10vw, 52px); }
 
   /* always show meaning on mobile (no hover on touch) */
-  .letter-meaning {
+  /* .letter-meaning {
     opacity: 1;
     transform: translateY(0);
     max-height: 40px;
     font-size: 7px;
     letter-spacing: 1.5px;
-  }
-  .letter-dot { margin: 6px 0 4px; }
+  } */
+  /* .letter-dot { margin: 6px 0 4px; } */
 
   /* disable lift on touch */
   .letter-block:hover { transform: none; box-shadow: none; }
@@ -782,15 +897,47 @@ nav {
 
 }
 
+@media (max-width: 696px)
+{
+  .connection
+  {
+    bottom: 105px;
+    width: 400px !important;
+
+  }
+}
+
+@media (max-width: 472px)
+{
+  .connection
+  {
+    bottom: 85px !important;
+    width: 250px !important;
+
+  }
+}
+
 /* ── Small mobile: max 400px ── */
 @media (max-width: 450px) {
+
+  .connection
+  {
+    bottom: 85px !important;
+    width: 300px !important;
+
+  }
+
+  .letter-meaning {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
   .hero-question {
     font-size: 65px ;
     letter-spacing: -0.5px;
     margin-bottom: 14px;
   }
   .letters-container { max-width: 100%; }
-  .letter-block { padding: 12px 6px 10px; }
+  /* .letter-block { padding: 12px 6px 10px; } */
   .letter-char { font-size: 32px; }
 }
 
@@ -801,6 +948,16 @@ nav {
     margin-bottom: 14px;
   }
   .letters-container { max-width: 100%; }
-  .letter-block { padding: 12px 6px 10px; }
+  /* .letter-block { padding: 12px 6px 10px; } */
   .letter-char { font-size: 32px; }
+}
+
+@media (max-width: 373px)
+{
+  .connection
+  {
+    bottom: 70px !important;
+    width: 250px !important;
+
+  }
 }
