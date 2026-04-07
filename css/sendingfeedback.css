@@ -1,0 +1,111 @@
+/* Prefix 'om-' ensures no conflicts with Bootstrap or other styles */
+.om-feedback-wrapper {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.om-container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.om-header-box {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.om-pre-title {
+    color: #707070;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.om-main-heading {
+    color: #1F3161;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.om-form-card {
+    background: #ffffff;
+    padding: 40px;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+}
+
+.om-field {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.om-field:focus {
+    outline: none;
+    border-color: #1F3161;
+}
+
+/* Star Rating Logic */
+.om-rating-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.om-rating-label {
+    font-size: 14px;
+    color: #707070;
+    margin-bottom: 10px;
+}
+
+.om-star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* Reverses order for hover logic */
+    justify-content: center;
+}
+
+.om-star-rating input { display: none; }
+
+.om-star-rating label {
+    font-size: 28px;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    padding: 0 5px;
+}
+
+/* Hover & Selected effect: Gold/Yellow for stars */
+.om-star-rating label:hover,
+.om-star-rating label:hover ~ label,
+.om-star-rating input:checked ~ label {
+    color: #FFD700; 
+}
+
+.om-btn-primary {
+    background-color: #1F3161;
+    color: #fff;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.om-btn-primary:hover {
+    background-color: #162447;
+    transform: translateY(-2px);
+}
+
+.om-status-msg {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
