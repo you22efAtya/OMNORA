@@ -15,7 +15,7 @@ async function fetchFromSheet() {
     var box = "";
     var counter = 0;
 
-    for (var i = rows.length -1; i >=0 ; i--) 
+    for (var i = 0; i < rows.length; i++) 
     {   
         var rowData = rows[i].c;
         if (!rowData || !rowData[0] || !rowData[1]) continue; // Skip empty rows
@@ -77,7 +77,7 @@ async function fetchFromSheet() {
             }
 
             // --- The Template ---
-            box += `<div class="col-lg-4 mb-3">
+            box = `<div class="col-lg-4 mb-3">
                     <div class="testimonial-card" style="height: 250px;">
                         <span class="quote-mark">“</span>
                         <p class="mb-4">${review}</p>
@@ -93,7 +93,7 @@ async function fetchFromSheet() {
                             </div>
                         </div>
                     </div>
-                </div>`;
+                </div>` + box;
             
             if(counter % 3 == 0) {
                 dynamicReviews.innerHTML += `<div class="carousel-item">
