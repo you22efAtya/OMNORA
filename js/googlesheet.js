@@ -3,127 +3,86 @@ const arabicMonths = ["يناير", "فبراير", "مارس", "أبريل", "�
 
 var dynamicReviews = document.querySelector('.dynamic-reviews');
 
+const API_URL = 'https://script.google.com/macros/s/AKfycbxoTlBLq-4BLASSYXNjbma_cb8ooNdxZ5USVCU3S4HhY1Xqg2J17FRs3Ijqc-M0Glhj3Q/exec';
+
 async function fetchFromSheet() {
+    try {
+        const res = await fetch(API_URL, {
+            method: "GET",
+            redirect: "follow" // This is the secret sauce for Google Apps Script
+        });
+        const reviews = await res.json(); // Data is already filtered and clean JSON
 
-  const url = `https://docs.google.com/spreadsheets/d/1d5iR_3MssVvM2QKEc6JnCqgDtMoGW4SDUIrmSFd9eSY/gviz/tq?tqx=out:json&sheet=Reviews`;
-  try {
-    const res  = await fetch(url);
-    const text = await res.text();
-    const json = JSON.parse(text.match(/\((.+)\)/s)[1]);
-    const rows = json.table.rows;
+        var box = "";
+        var counter = 0;
 
-    var box = "";
-    var counter = 0;
-
-    for (var i = 0; i < rows.length; i++) 
-    {   
-        var rowData = rows[i].c;
-        if (!rowData || !rowData[0] || !rowData[1]) continue; // Skip empty rows
-
-        var rawDate = rowData[0].v ? rowData[0].v.toString() : ""; 
-        var name    = rowData[1].v ? rowData[1].v : "Anonymous";
-        var stars   = rowData[2].v ? parseInt(rowData[2].v) : 5;
-        var review  = rowData[3].v ? rowData[3].v : "";
-
-        if(rows[i].c[4].v == "approved")
-        {
+        reviews.forEach(rowData => {
             counter++;
-            var name = rows[i].c[1].v;
-            var stars = parseInt(rows[i].c[2].v); 
-            var review = rows[i].c[3].v;
-
-            var formattedDate = "";
-            if (rawDate.includes("Date")) {
-                var dateNumbers = rawDate.match(/\d+/g); 
-                if (dateNumbers) {
-                    var year = dateNumbers[0];
-                    var monthIndex = parseInt(dateNumbers[1]); 
-                    formattedDate = `${year} ${arabicMonths[monthIndex]}`;
-                }
-            } else {
-                formattedDate = "2026 مارس"; // Fallback
-            }
             
-
-            // --- Initials Logic ---
-            var nameParts = name.trim().split(' ');
-
-            var initials = nameParts.length > 1 
-                // Adds a space between first letter and last letter
-                ? (nameParts[0][0] + ' ' + nameParts[nameParts.length - 1][0]).toUpperCase() 
-                // Adds a space between the first and second letter of a single name
-                : (name.slice(0, 1) + ' ' + name.slice(1, 2)).toUpperCase();
-
-            // --- Specific HTML for each Star Count ---
-            var starsHtml = '';
-            switch(stars) {
-                case 5:
-                    starsHtml = '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>';
-                    break;
-                case 4:
-                    starsHtml = '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>';
-                    break;
-                case 3:
-                    starsHtml = '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>';
-                    break;
-                case 2:
-                    starsHtml = '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>';
-                    break;
-                case 1:
-                    starsHtml = '<i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>';
-                    break;
-                default:
-                    starsHtml = '<i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>';
+            // 1. Handle Date
+            let formattedDate = "2026 مارس"; // Default
+            if (rowData.date) {
+                const d = new Date(rowData.date);
+                formattedDate = `${d.getFullYear()} ${arabicMonths[d.getMonth()]}`;
             }
 
-            // --- The Template ---
+            // 2. Initials Logic
+            const name = rowData.name || "Anonymous";
+            const nameParts = name.trim().split(' ');
+            const initials = nameParts.length > 1 
+                ? (nameParts[0][0] + ' ' + nameParts[nameParts.length - 1][0]).toUpperCase() 
+                : (name.slice(0, 2).split('').join(' ')).toUpperCase();
+
+            // 3. Stars Logic
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                starsHtml += i <= rowData.stars ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>';
+            }
+
+            // 4. Build Template
             box = `<div class="col-lg-4 mb-3">
                     <div class="testimonial-card" style="height: 250px;">
                         <span class="quote-mark">“</span>
-                        <p class="mb-4">${review}</p>
+                        <p class="mb-4">${rowData.review}</p>
                         <hr class="border-light opacity-50">
                         <div class="d-flex align-items-center">
                             <div class="avatar-circle ms-3">${initials}</div>
                             <div>
                                 <h6 class="mb-0 fw-bold mb-1">${name}</h6>
                                 <small class="text-muted"><i class="bi bi-calendar3 me-1 ms-1"></i>${formattedDate}</small>
-                                <div class="star-rating">
-                                    ${starsHtml}
-                                </div>
+                                <div class="star-rating">${starsHtml}</div>
                             </div>
                         </div>
                     </div>
                 </div>` + box;
-            
-            if(counter % 3 == 0) {
+
+            // Carousel grouping logic
+            if (counter % 3 == 0) {
                 dynamicReviews.innerHTML += `<div class="carousel-item">
+                                                <div class="row px-md-5 d-flex justify-content-center align-items-center">
+                                                    ${box}
+                                                </div>
+                                            </div>`;
+                box = "";
+            }
+        });
+
+        // Handle remaining items
+        if (box !== "") {
+            dynamicReviews.innerHTML += `<div class="carousel-item">
                                             <div class="row px-md-5 d-flex justify-content-center align-items-center">
                                                 ${box}
                                             </div>
                                         </div>`;
-                box = "";
-                counter = 0;
-            }
         }
-            
-    }
 
-        if(box !== "") 
-        {
-            dynamicReviews.innerHTML += `<div class="carousel-item">
-                                        <div class="row px-md-5 d-flex justify-content-center align-items-center">
-                                            ${box}
-                                        </div>
-                                    </div>`;
-        }
-        
-        } catch(e) {
-            console.warn('Sheet fetch failed, using demo data.', e);
-        }
+    } catch (e) {
+        console.error('Error loading reviews:', e);
     }
+}
 
 // USE THE URL FROM THE "DEPLOY" POPUP, NOT THE BROWSER URL BAR
-const SCRIPT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwoDorMnL7Lr_hzkOnhYs8u3pPraIqJGR_2E0FRtdc2fFuutlxuHnBi89ck_IFB1x6n1A/exec';
+const SCRIPT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxoTlBLq-4BLASSYXNjbma_cb8ooNdxZ5USVCU3S4HhY1Xqg2J17FRs3Ijqc-M0Glhj3Q/exec';
 
 const om_form = document.getElementById('omReviewEngine');
 const om_btn = document.getElementById('om_submit_trigger');

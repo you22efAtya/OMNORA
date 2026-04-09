@@ -135,3 +135,30 @@
         height: auto !important;
     }
 }
+
+@media (max-width: 992px) {
+    .testimonial-card .d-flex 
+    {
+        position: relative;
+        top: 0;
+    }
+    .testimonial-card
+    {
+        height: auto !important;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+    .testimonial-card .d-flex 
+    {
+        position: absolute;
+        
+        top: 250px;
+        right: 20px;
+    }
+    .testimonial-card
+    {
+        position: relative;
+        height: 350px !important;
+    }
+}
