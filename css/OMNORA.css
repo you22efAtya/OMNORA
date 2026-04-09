@@ -26,7 +26,7 @@ body {
 .connection {
   /* Positioning & Layout */
   position: absolute;
-  bottom: 100px;
+  top: 97%;
   left: 50%;
   transform: translateX(-50%) translateY(20px); /* Centers and sets up "fade up" */
   width: 90%;
@@ -290,7 +290,6 @@ nav {
   display: flex;
   border: 1px solid var(--line);
   border-radius: 6px;
-  overflow: hidden;
   margin-bottom: 90px;
   position: relative;
   z-index: 1;
@@ -725,11 +724,11 @@ nav {
 
   .hero { padding: 120px 32px 80px; }
   
-  .connection
+  /* .connection
   {
     bottom: 80px;
     width: 450px !important;
-  }
+  } */
 
   /* .letters-container { margin-bottom: 60px; } */
   /* .letter-block { padding: 22px 22px 18px; } */
@@ -774,12 +773,12 @@ nav {
     position: relative;
     bottom: 5px !important;
   }
-  .connection
+  /* .connection
   {
     bottom: 190px;
     font-size: 14px;
     width: 450px !important;
-  }
+  } */
   /* NAV */
   nav { padding: 18px 24px; }
   .nav-links { display: none; }
@@ -899,33 +898,33 @@ nav {
 
 @media (max-width: 696px)
 {
-  .connection
+  /* .connection
   {
     bottom: 155px;
     width: 400px !important;
 
-  }
+  } */
 }
 
 @media (max-width: 472px)
 {
-  .connection
+  /* .connection
   {
     bottom: 140px !important;
     width: 300px !important;
 
-  }
+  } */
 }
 
 /* ── Small mobile: max 400px ── */
 @media (max-width: 450px) {
 
-  .connection
+  /* .connection
   {
     bottom: 140px !important;
     width: 300px !important;
 
-  }
+  } */
 
   .letter-meaning {
     font-size: 7px;
@@ -954,10 +953,10 @@ nav {
 
 @media (max-width: 373px)
 {
-  .connection
+  /* .connection
   {
     bottom: 110px !important;
     width: 250px !important;
 
-  }
+  } */
 }
